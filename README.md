@@ -15,13 +15,13 @@ However, when this bean exists and the curl command includes a username and pass
 
 If you comment out the lines below to disable the ```BCryptPasswordEncoder``` bean and restart the application, the curl comands work as expected.
 
-* [Beans.kt#L8](http://https://github.com/kensiprell/kotlin-spring-security/tree/master/src/main/kotlin/com/siprell/kotlinspringsecurity/Beans.kt#L8)
-* [Handler.kt#L11](http://https://github.com/kensiprell/kotlin-spring-security/tree/master/src/main/kotlin/com/siprell/kotlinspringsecurity/Handler.kt#L11)
-* [Handler.kt#L15](http://https://github.com/kensiprell/kotlin-spring-security/tree/master/src/main/kotlin/com/siprell/kotlinspringsecurity/Handler.kt#L15)
+* [Beans.kt#L8](https://github.com/kensiprell/kotlin-spring-security/blob/master/src/main/kotlin/com/siprell/kotlinspringsecurity/Beans.kt#L8)
+* [Handler.kt#L11](https://github.com/kensiprell/kotlin-spring-security/blob/master/src/main/kotlin/com/siprell/kotlinspringsecurity/Handler.kt#L11)
+* [Handler.kt#L15](https://github.com/kensiprell/kotlin-spring-security/blob/master/src/main/kotlin/com/siprell/kotlinspringsecurity/Handler.kt#L15)
 
 ## Problem 2
 
-Trying to change the logging level for ```org.springframework.security``` in [application.yml](http://https://github.com/kensiprell/kotlin-spring-security/tree/master/src/main/kotlin/resources/appication.yml) has no effect. I've experimented with various settings without success.
+Trying to change the logging level for ```org.springframework.security``` in [application.yml](https://github.com/kensiprell/kotlin-spring-security/blob/master/src/main/resources/application.yml) has no effect. I've experimented with various settings without success.
 
 ### Curl Commands
 
