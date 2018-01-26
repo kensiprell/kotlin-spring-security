@@ -1,0 +1,8 @@
+context:
+  initializer:
+    classes: com.siprell.kotlinspringsecurity.BeansInitializer
+
+logging:
+  level:
+    root: DEBUG
+#    org.springframework.security: DEBUG
