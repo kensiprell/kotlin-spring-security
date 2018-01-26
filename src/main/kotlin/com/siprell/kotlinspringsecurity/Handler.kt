@@ -2,18 +2,18 @@ package com.siprell.kotlinspringsecurity;
 
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.userdetails.UserDetails
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse
 import reactor.core.publisher.Mono
 
 class Handler(
-    private var bCryptPasswordEncoder: BCryptPasswordEncoder
+    private var passwordEncoder: PasswordEncoder
 ) {
 
     fun encoder(serverRequest: ServerRequest): Mono<ServerResponse> {
-        return ServerResponse.ok().body(Mono.just(bCryptPasswordEncoder::class.java.toString()), String::class.java)
-        // return ServerResponse.ok().body(Mono.just("Disabled"), String::class.java)
+        val password: String = passwordEncoder.encode("password")
+        return ServerResponse.ok().body(Mono.just(password), String::class.java)
     }
 
     fun anonymous(serverRequest: ServerRequest): Mono<ServerResponse> {

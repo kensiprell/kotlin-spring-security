@@ -19,6 +19,18 @@ If you comment out the lines below to disable the ```BCryptPasswordEncoder``` be
 * [Handler.kt#L11](https://github.com/kensiprell/kotlin-spring-security/blob/master/src/main/kotlin/com/siprell/kotlinspringsecurity/Handler.kt#L11)
 * [Handler.kt#L15](https://github.com/kensiprell/kotlin-spring-security/blob/master/src/main/kotlin/com/siprell/kotlinspringsecurity/Handler.kt#L15)
 
+### Solution to 1
+
+The definition below solved the ```PasswordEncoder``` problem. See [Handler.kt#L19-22](https://github.com/kensiprell/kotlin-spring-security/blob/master/src/main/kotlin/com/siprell/kotlinspringsecurity/SecurityConfiguration.kt#L19-22).
+
+```
+@Bean
+fun passwordEncoder(): PasswordEncoder {
+    return PasswordEncoderFactories.createDelegatingPasswordEncoder()
+}
+```
+
+
 ## Problem 2
 
 Trying to change the logging level for ```org.springframework.security``` in [application.yml](https://github.com/kensiprell/kotlin-spring-security/blob/master/src/main/resources/application.yml) has no effect. I've experimented with various settings without success.

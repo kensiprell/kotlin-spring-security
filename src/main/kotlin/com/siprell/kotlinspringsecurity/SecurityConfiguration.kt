@@ -8,10 +8,18 @@ import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.AuthorityUtils
 import org.springframework.security.core.userdetails.MapReactiveUserDetailsService
 import org.springframework.security.core.userdetails.User
+import org.springframework.security.crypto.factory.PasswordEncoderFactories
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.server.SecurityWebFilterChain
+
 
 @EnableWebFluxSecurity
 class SecurityConfiguration {
+
+    @Bean
+    fun passwordEncoder(): PasswordEncoder {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder()
+    }
 
     @Bean
     fun userDetailsService(): MapReactiveUserDetailsService {
@@ -41,7 +49,7 @@ class SecurityConfiguration {
                 mono
                     .map { auth ->
                         auth.authorities.containsAll(adminRole).or(
-                            auth.name.equals(context.variables["username"]))
+                            auth.name == context.variables["username"])
                     }
                     .map { AuthorizationDecision(it) }
             })
